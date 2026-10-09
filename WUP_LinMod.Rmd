@@ -1,6 +1,6 @@
 ---
 title: "Linear Model with Prediction"
-author: "Dr. J"
+author: "Jacqueline Morrs"
 date: "`r Sys.Date()`"
 output: html_document
 ---
@@ -39,9 +39,19 @@ head(mtcars)
 
 ## data summary
 ### graphical summary
+```{r}
+plot(mpg~wt,data=mtcars, pch=19)
+grid ()
+```
+This plot shows that as the weight of the car increases, the mpg decreases. 
 
 
 ### numerical summary
+
+```{r}
+cor(mtcars$mpg,mtcars$wt)
+```
+
 
 ### model summary
 

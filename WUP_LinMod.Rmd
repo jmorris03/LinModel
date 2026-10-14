@@ -51,19 +51,23 @@ This plot shows that as the weight of the car increases, the mpg decreases.
 ```{r}
 cor(mtcars$mpg,mtcars$wt)
 ```
-
-
 ### model summary
-
-
 ```{r}
-model1 <- lm(mpg ~ wt, data = mtcars)
-
+model1 <- lm(mpg ~ disp, data = mtcars)
 summary(model1)
 ```
 
 
+### predicted mpg
+
+```{r}
+newData = data.frame(wt=3.050, disp=122)
+print(predict(model1, newData, interval = 'predict'))
+```
+
+
 # Model 2:
+
 
 
  mpg (miles per gallon) is the response (Y)
@@ -71,6 +75,12 @@ summary(model1)
 
 ## data summary
 ### graphical summary
+
+```{r}
+plot(wt~mpg,data=mtcars, pch=19)
+grid ()
+```
+
 
 
 ### numerical summary
@@ -97,6 +107,8 @@ plot(mpg ~ wt+disp, data = mtcars)
 
 ### numerical summary
 
+
+
 ### model summary
 model3= lm(mpg ~ wt+disp, data = mtcars)
 model summary (coefficients, R², etc.), summarize the fit
@@ -116,7 +128,7 @@ plot(mpg ~ wt+disp, data=mtcars)
 ```
 
 ### numerical summary
-
+No numerical summary for model 3; two regressors.   
 ### model summary
 
 
@@ -128,10 +140,17 @@ model3 <- lm(mpg ~ wt+disp, data = mtcars)
 
 model summary (coefficients, R², etc.)
 
+### predicted mpg
+
+```{r}
+print(predict(model1, newData, interval = 'predict')) 
+```
+
+
 ```{r}
 summary(model3)
 ```
-
+The p value is <0.05, so we fail to reject the null hypothesis.
 ```{r}
 anova_result <- anova(model1, model3)
 print(anova_result)

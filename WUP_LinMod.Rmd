@@ -128,7 +128,9 @@ plot(mpg ~ wt+disp, data=mtcars)
 ```
 
 ### numerical summary
-No numerical summary for model 3; two regressors.   
+
+No numerical summary for model 3; two regressors.
+
 ### model summary
 
 
@@ -156,4 +158,6 @@ anova_result <- anova(model1, model3)
 print(anova_result)
 ```
 
-# Discussion/Conclustions
+# Discussion/Conclusions
+restate the three questions, answer them.
+Discuss the anova

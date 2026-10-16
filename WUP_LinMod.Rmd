@@ -81,9 +81,13 @@ plot(wt~mpg,data=mtcars, pch=19)
 grid ()
 ```
 
-
+This graph shows that as weight decreases, mpg increases.   
 
 ### numerical summary
+
+```{r}
+cor(mtcars$wt,mtcars$mpg)
+```
 
 ### model summary
 
@@ -105,9 +109,12 @@ summary(model2)
 plot(mpg ~ wt+disp, data = mtcars)
 ```
 
+
+Graph one shows us that as weight increases, mpg decreases which is consistent with Model 1. Our second graph shows us that as displacement increases, mpg decreases. This suggests a correlation between weight and displacement when mpg changes.   
+
 ### numerical summary
 
-
+No numerical summary for model 3; two regressors.
 
 ### model summary
 model3= lm(mpg ~ wt+disp, data = mtcars)
@@ -126,10 +133,6 @@ summary(model3)
 ```{r}
 plot(mpg ~ wt+disp, data=mtcars)
 ```
-
-### numerical summary
-
-No numerical summary for model 3; two regressors.
 
 ### model summary
 
@@ -152,7 +155,7 @@ print(predict(model1, newData, interval = 'predict'))
 ```{r}
 summary(model3)
 ```
-The p value is <0.05, so we fail to reject the null hypothesis.
+The p value is <0.05, so we fail to reject the null hypothesis.   
 ```{r}
 anova_result <- anova(model1, model3)
 print(anova_result)
